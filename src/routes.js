@@ -61,12 +61,24 @@ const court = [
   },
 ];
 // 比赛
-const game = [
+const league = [
   {
-    path: '/game',
-    name: 'game',
-    meta: { title: '比赛' },
-    component: resolve => require(['./views/game/game.vue'], resolve)
+    path: '/league',
+    name: 'league',
+    meta: {
+      title: '联赛',
+      hasHeader: true,
+    },
+    component: resolve => require(['./views/league/league.vue'], resolve)
+  },
+  {
+    path: '/league/detail/:id',
+    name: 'league.detail',
+    meta: {
+      title: '联赛详情',
+      hasHeader: true,
+    },
+    component: resolve => require(['./views/league/league.detail.vue'], resolve)
   },
 ];
 // 用户中心
@@ -80,6 +92,6 @@ const user = [
 ];
 
 let routes = []
-routes = routes.concat(basic, news, game, court, user)
+routes = routes.concat(basic, news, league, court, user)
 
 export default routes;

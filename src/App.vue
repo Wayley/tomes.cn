@@ -12,7 +12,7 @@
           <x-icon type="map" size="30" slot="icon"></x-icon>
           <span slot="label">场地</span>
         </tabbar-item>
-        <tabbar-item link="/game" :selected="itemIsSelected('/game')">
+        <tabbar-item link="/league" :selected="itemIsSelected('/league')">
           <x-icon type="ios-basketball" class="icon-red" slot="icon"></x-icon>
           <span slot="label">比赛</span>
         </tabbar-item>
@@ -54,7 +54,6 @@ export default {
   },
   methods: {
     itemIsSelected(path) {
-      console.log(23456, path, this.routePath.indexOf(path));
       return this.routePath.indexOf(path) > -1;
     },
     itemChange() {
@@ -76,7 +75,7 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-color: #fbf9fe;
+  // background-color: #fbf9fe;
 }
 .header {
   width: 100%;
@@ -86,18 +85,41 @@ body {
   z-index: 100;
   color: #fff;
 }
+/* 位置icon */
+.icon-arrow-dropdown {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #fff;
+  position: absolute;
+  left: 7px;
+  top: 35%;
+  margin-left: 25px;
+}
 .container {
   padding: 10px 15px;
 }
+// VUX覆盖样式
+.container .weui-cells {
+  margin-top: 0px;
+}
 .weui-cells {
-  background-color: #fbf9fe !important;
+  // background-color: #fbf9fe !important;
+  margin-top: 0px !important;
+}
+.weui-cells .weui-cell:before {
+  left: 0 !important;
 }
 .vux-divider {
   font-size: 0.5rem;
 }
 .vux-header-title {
-  font-size: 0.75rem !important;
+  font-size: 1.066rem !important;
 }
+// .weui-toast {
+//   width:
+// }
 </style>
 <style lang="less">
 .clearfix:after {
@@ -121,22 +143,25 @@ img {
   font-size: 12px;
 }
 html {
-  font-size: 20px;
+  font-size: 12px;
 }
 @media screen and (max-width: 320px) {
   html {
-    font-size: 20px;
+    font-size: 12px;
   }
 }
 @media screen and (min-width: 375px) {
   html {
-    font-size: 23.4375px;
+    font-size: 14.0625px;
   }
 }
 @media screen and (min-width: 414px) {
   html {
-    font-size: 25.875px;
+    font-size: 15.525px;
   }
+}
+.mb-15 {
+  margin-bottom: 15px !important;
 }
 </style>
 

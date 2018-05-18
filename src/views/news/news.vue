@@ -11,7 +11,7 @@
     </x-header>
     <div class="newsList">
       <group>
-        <cell-box v-for="item in list" :key="item.id" class="myyy">
+        <cell-box v-for="item in list" :key="item.id">
           <div @click="goDetail(item.id)">
             <flexbox>
               <!-- 左侧 -->
@@ -44,7 +44,6 @@
               </flexbox-item>
             </flexbox>
           </div>
-
         </cell-box>
       </group>
 
@@ -149,7 +148,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* 球场列表 */
 .newsList .weui-cells {
   margin-top: 0px;

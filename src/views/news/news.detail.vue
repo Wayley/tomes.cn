@@ -69,7 +69,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .newsDetail .weui-cells {
   margin-top: 0px;
 }

@@ -6,7 +6,7 @@ import VueRouter from 'vue-router';
 import store from './store/index'
 import App from './App';
 import routes from './routes';
-import VuxPlugin from './vuxPlugin'
+import VuxPlugin from './vuxPlugin';
 
 // 全局注册transfer-dom 实现组件自动移动带body下 解决部分组件的问题
 Vue.directive('transfer-dom', VuxPlugin.TransferDom);

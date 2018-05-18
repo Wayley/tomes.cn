@@ -1,11 +1,11 @@
 <template>
   <div>
-    <x-header slot="header" class="header" title="场地信息" style="position:fixed">
+    <x-header slot="header" class="header" title="场地信息" style="position:fixed" @on-click-more="addCourt(1)">
       <span slot="overwrite-left">
         深圳
         <i class="icon-arrow-dropdown"></i>
       </span>
-      <div slot="right">
+      <div slot="right" @click="addCourt(2)">
         <icon type="search" style="color:#FFF"></icon>
         <!-- <x-icon type="ios-plus-empty" size="20" class="cell-x-icon"></x-icon>
         <x-icon type="ios-search" size="20" style="color:#fff"></x-icon> -->
@@ -13,36 +13,38 @@
     </x-header>
     <div class="courtList">
       <group>
-        <cell-box v-for="item in list" :key="item.id">
-          <flexbox>
-            <!-- 左侧 -->
-            <flexbox-item :span="4">
-              <div class="court-img">
-                <!-- <img src="../assets/uooc_court.jpg" alt=""> -->
-                <img :src="item.img" :alt="item.name">
-              </div>
-            </flexbox-item>
-            <!-- 右侧 -->
-            <flexbox-item>
-              <div class="">
-                <flexbox orient="vertical">
-                  <!--  -->
-                  <flexbox-item>
-                    <div class="court-info clearfix">
-                      <div class="fl name">{{item.name}}</div>
-                      <div class="fr distance">3.1公里以内</div>
-                    </div>
-                  </flexbox-item>
-                  <!--  -->
-                  <flexbox-item>
-                    <div class="tags">
-                      <span class="tag" v-for="tag in item.tags" :class="'tag_type_'+tag">{{tagsList[tag-1]}}</span>
-                    </div>
-                  </flexbox-item>
-                </flexbox>
-              </div>
-            </flexbox-item>
-          </flexbox>
+        <cell-box v-for="item in list" :key="item.id" style="margin-top:0">
+          <div @click="goDetail(item.id)">
+            <flexbox>
+              <!-- 左侧 -->
+              <flexbox-item :span="4">
+                <div class="court-img">
+                  <!-- <img src="../assets/uooc_court.jpg" alt=""> -->
+                  <img :src="item.img" :alt="item.name">
+                </div>
+              </flexbox-item>
+              <!-- 右侧 -->
+              <flexbox-item>
+                <div class="">
+                  <flexbox orient="vertical">
+                    <!--  -->
+                    <flexbox-item>
+                      <div class="court-info clearfix">
+                        <div class="fl name">{{item.name}}</div>
+                        <div class="fr distance">3.1公里以内</div>
+                      </div>
+                    </flexbox-item>
+                    <!--  -->
+                    <flexbox-item>
+                      <div class="tags">
+                        <span class="tag" v-for="tag in item.tags" :class="'tag_type_'+tag">{{tagsList[tag-1]}}</span>
+                      </div>
+                    </flexbox-item>
+                  </flexbox>
+                </div>
+              </flexbox-item>
+            </flexbox>
+          </div>
         </cell-box>
       </group>
 
@@ -59,7 +61,6 @@ export default {
       list: [
         {
           name: '南山球场',
-          // img: '/static/img/nanshan_court.ec32b37.jpg',
           img: '/static/images/vux_logo.png',
           id: 12,
           tags: [1, 2, 3, 4]
@@ -116,30 +117,26 @@ export default {
       tagsList: ['室外', '收费', '塑胶', '灯光']
     };
   },
-  methods: {}
+  methods: {
+    addCourt(i) {
+      console.log(1222222, i);
+      this.$router.push({
+        name: 'court.add'
+      });
+    },
+    goDetail(id) {
+      this.$router.push({
+        name: 'court.edit',
+        params: {
+          id: id
+        }
+      });
+    }
+  }
 };
 </script>
 
-<style>
-/* 位置icon */
-.icon-arrow-dropdown {
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 8px solid #fff;
-  position: absolute;
-  left: 7px;
-  top: 35%;
-  margin-left: 25px;
-}
-.flex-dem2o {
-  text-align: center;
-  color: #fff;
-  background-color: #20b907;
-  border-radius: 4px;
-  background-clip: padding-box;
-}
+<style scoped>
 /* 球场列表 */
 .courtList .weui-cells {
   margin-top: 0px;
@@ -148,15 +145,15 @@ export default {
   width: 100%;
   /* max-height: 60px;
   min-height: 55px; */
-  height: 55px;
+  height: 4.25rem;
   border-radius: 2px;
 }
 .courtList .court-info {
   /* font-size: 0.75rem; */
-  line-height: 0.8rem;
+  line-height: 1.28rem;
 }
 .courtList .court-info .name {
-  font-size: 16px;
+  font-size: 1.0667rem;
   max-width: 60%;
 }
 .courtList .court-info .distance {

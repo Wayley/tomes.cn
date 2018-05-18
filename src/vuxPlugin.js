@@ -330,6 +330,8 @@ const install = function (Vue, opts = {}) {
 
   Object.keys(VuxComponents).forEach(key => {
     Vue.component(key, VuxComponents[key]);
+    // 全局Plugin
+    Vue.use(LoadingPlugin);
   });
   install.installed = true;
 
