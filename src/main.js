@@ -7,6 +7,19 @@ import store from './store/index'
 import App from './App';
 import routes from './routes';
 import VuxPlugin from './vuxPlugin';
+// 引入fontawesome
+import fontawesome from '@fortawesome/fontawesome'
+import brands from '@fortawesome/fontawesome-free-brands'
+import solid from '@fortawesome/fontawesome-free-solid'
+import regular from '@fortawesome/fontawesome-free-regular'
+fontawesome.library.add(brands, solid, regular)
+
+// 全局使用font-awesome-icon组件
+import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('FontAwesomeIcon', FontAwesomeIcon)
+Vue.component('font-awesome-layers', FontAwesomeLayers)
+
 
 // 全局注册transfer-dom 实现组件自动移动带body下 解决部分组件的问题
 Vue.directive('transfer-dom', VuxPlugin.TransferDom);
@@ -24,7 +37,7 @@ const router = new VueRouter({
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+window.app = new Vue({
   router,
   store,
   render: h => h(App)

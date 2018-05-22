@@ -5,19 +5,19 @@
       <router-view></router-view>
       <tabbar slot="bottom" @on-index-change="tabbarChange()">
         <tabbar-item :selected="routePath == '/' || itemIsSelected('/news')" link="/" @on-item-click="itemChange()">
-          <x-icon type="ios-paper" class="icon-red" slot="icon"></x-icon>
+          <FontAwesomeIcon icon="file-alt" slot="icon"></FontAwesomeIcon>
           <span slot="label">资讯</span>
         </tabbar-item>
         <tabbar-item show-dot link="/court" :selected="itemIsSelected('/court')">
-          <x-icon type="map" size="30" slot="icon"></x-icon>
+          <FontAwesomeIcon icon="th" :rotation="90" slot="icon"></FontAwesomeIcon>
           <span slot="label">场地</span>
         </tabbar-item>
         <tabbar-item link="/league" :selected="itemIsSelected('/league')">
-          <x-icon type="ios-basketball" class="icon-red" slot="icon"></x-icon>
+          <FontAwesomeIcon icon="trophy" slot="icon"></FontAwesomeIcon>
           <span slot="label">比赛</span>
         </tabbar-item>
         <tabbar-item badge="2" link="/user" :selected="itemIsSelected('/user')">
-          <x-icon type="home" class="icon-red" slot="icon"></x-icon>
+          <FontAwesomeIcon icon="user-circle" slot="icon"></FontAwesomeIcon>
           <span slot="label">我的</span>
         </tabbar-item>
       </tabbar>
@@ -69,7 +69,6 @@ export default {
 <style lang="less">
 @import '~vux/src/styles/reset.less';
 @import '~vux/src/styles/1px.less';
-
 html,
 body {
   height: 100%;
@@ -83,7 +82,7 @@ body {
   left: 0;
   top: 0;
   z-index: 100;
-  color: #fff;
+  // color: #fff;
 }
 /* 位置icon */
 .icon-arrow-dropdown {
@@ -117,9 +116,10 @@ body {
 .vux-header-title {
   font-size: 1.066rem !important;
 }
-// .weui-toast {
-//   width:
-// }
+.weui-tabbar__icon svg {
+  width: 100% !important;
+  height: 100% !important;
+}
 </style>
 <style lang="less">
 .clearfix:after {

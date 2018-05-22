@@ -3,16 +3,26 @@
     <x-header slot="header" class="header" title="场地信息" style="position:fixed" @on-click-more="addCourt(1)">
       <span slot="overwrite-left">
         深圳
-        <i class="icon-arrow-dropdown"></i>
+        <FontAwesomeIcon icon="caret-down"></FontAwesomeIcon>
+
       </span>
       <div slot="right" @click="addCourt(2)">
-        <icon type="search" style="color:#FFF"></icon>
-        <!-- <x-icon type="ios-plus-empty" size="20" class="cell-x-icon"></x-icon>
-        <x-icon type="ios-search" size="20" style="color:#fff"></x-icon> -->
+        <FontAwesomeIcon icon="search" style="margin-right:20px"></FontAwesomeIcon>
+
+        <FontAwesomeIcon icon="plus"></FontAwesomeIcon>
       </div>
     </x-header>
     <div class="courtList">
-      <group>
+      <font-awesome-icon icon="spinner" spin />
+      <font-awesome-icon icon="spinner" pulse />
+      <font-awesome-icon icon="plus" spin/>
+      <font-awesome-icon icon="spinner" fixed-width />
+      <font-awesome-icon :icon="['fab', 'font-awesome']" />
+      <font-awesome-layers class="fa-lg">
+        <font-awesome-icon icon="circle" />
+        <font-awesome-icon icon="check" transform="shrink-6" style="color: red;" />
+      </font-awesome-layers>
+      <group style="display:block">
         <cell-box v-for="item in list" :key="item.id" style="margin-top:0">
           <div @click="goDetail(item.id)">
             <flexbox>
@@ -48,7 +58,7 @@
         </cell-box>
       </group>
 
-      <divider>{{ BottomInfo }} </divider>
+      <divider>{{ dividerInfo }} </divider>
     </div>
 
   </div>
@@ -57,69 +67,76 @@
 export default {
   data() {
     return {
-      BottomInfo: '我是有底线的',
-      list: [
-        {
-          name: '南山球场',
-          img: '/static/images/vux_logo.png',
-          id: 12,
-          tags: [1, 2, 3, 4]
-        },
-        {
-          name: '市民中心体育馆篮球场',
-          img: '/static/images/kobe.jpg',
-          id: 14,
-          tags: [1, 2, 4]
-        },
-        {
-          name: '深大球场',
-          img: '/static/images/shenda_court.jpg',
-          id: 17,
-          tags: [1, 4]
-        },
-        {
-          name: '宝体中心球场',
-          img: '/static/images/baoti_court.jpg',
-          id: 15,
-          tags: [1, 3]
-        },
-        {
-          name: 'uooc中心球场',
-          img: '/static/images/uooc_court.jpg',
-          id: 13,
-          tags: [1, 2, 3, 4]
-        },
-        {
-          name: '南山球场',
-          img: '/static/images/nanshan_court.jpg',
-          id: 11,
-          tags: [1, 2, 3, 4]
-        },
-        {
-          name: '市民中心体育馆篮球场',
-          img: '/static/images/kobe.jpg',
-          id: 16,
-          tags: [1, 2, 4]
-        },
-        {
-          name: '深大球场',
-          img: '/static/images/shenda_court.jpg',
-          id: 18,
-          tags: [1, 4]
-        },
-        {
-          name: '宝体中心球场',
-          img: '/static/images/baoti_court.jpg',
-          id: 19,
-          tags: [1, 3]
-        }
-      ],
+      list: [],
       tagsList: ['室外', '收费', '塑胶', '灯光']
     };
   },
+  computed: {
+    dividerInfo() {
+      return this.$store.getters.dividerInfo;
+    }
+  },
+  created() {
+    // TODO:
+    this.list = [
+      {
+        name: '南山球场',
+        img: '/static/images/vux_logo.png',
+        id: 12,
+        tags: [1, 2, 3, 4]
+      },
+      {
+        name: '市民中心体育馆篮球场',
+        img: '/static/images/kobe.jpg',
+        id: 14,
+        tags: [1, 2, 4]
+      },
+      {
+        name: '深大球场',
+        img: '/static/images/shenda_court.jpg',
+        id: 17,
+        tags: [1, 4]
+      },
+      {
+        name: '宝体中心球场',
+        img: '/static/images/baoti_court.jpg',
+        id: 15,
+        tags: [1, 3]
+      },
+      {
+        name: 'uooc中心球场',
+        img: '/static/images/uooc_court.jpg',
+        id: 13,
+        tags: [1, 2, 3, 4]
+      },
+      {
+        name: '南山球场',
+        img: '/static/images/nanshan_court.jpg',
+        id: 11,
+        tags: [1, 2, 3, 4]
+      },
+      {
+        name: '市民中心体育馆篮球场',
+        img: '/static/images/kobe.jpg',
+        id: 16,
+        tags: [1, 2, 4]
+      },
+      {
+        name: '深大球场',
+        img: '/static/images/shenda_court.jpg',
+        id: 18,
+        tags: [1, 4]
+      },
+      {
+        name: '宝体中心球场',
+        img: '/static/images/baoti_court.jpg',
+        id: 19,
+        tags: [1, 3]
+      }
+    ];
+  },
   methods: {
     addCourt(i) {
-      console.log(1222222, i);
       this.$router.push({
         name: 'court.add'
       });
@@ -135,8 +152,7 @@ export default {
   }
 };
 </script>
-
-<style scoped>
+<style lang="less" scoped>
 /* 球场列表 */
 .courtList .weui-cells {
   margin-top: 0px;

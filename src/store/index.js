@@ -9,6 +9,7 @@ const state = {
   metaName: '',
   pageSize: 10,
   userAccount: '',
+  dividerInfo: '我是有底线的'
 };
 
 // getters
@@ -17,6 +18,7 @@ const getters = {
   metaName: state => state.metaName,
   pageSize: state => state.pageSize,
   userAccount: state => state.userAccount,
+  dividerInfo: state => state.dividerInfo
 }
 // mutations
 const mutations = {

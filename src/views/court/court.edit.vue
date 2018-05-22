@@ -39,6 +39,7 @@
 export default {
   data() {
     return {
+      minuteListValue: '',
       list2: [
         ['01', '02', '03', '04'],
         ['01', '02', '03', '04', '10'],
@@ -139,7 +140,8 @@ export default {
         this.courtInfo = this.courtInfo_;
       }, 500);
     },
-    onItemClick() {}
+    onItemClick() {},
+    change() {}
   }
 };
 </script>
