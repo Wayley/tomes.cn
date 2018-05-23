@@ -86,7 +86,10 @@ const user = [
   {
     path: '/user',
     name: 'user',
-    meta: { title: '我的' },
+    meta: {
+      title: '我的',
+      hasHeader: true
+    },
     component: resolve => require(['./views/user/user.vue'], resolve)
   },
 ];

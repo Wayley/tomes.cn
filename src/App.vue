@@ -82,7 +82,6 @@ body {
   left: 0;
   top: 0;
   z-index: 100;
-  // color: #fff;
 }
 /* 位置icon */
 .icon-arrow-dropdown {
@@ -120,8 +119,32 @@ body {
   width: 100% !important;
   height: 100% !important;
 }
+.weui-tabbar__item {
+  // color: @menu-color!important;
+}
+.weui-tabbar__label {
+  color: @menu-color!important;
+}
 </style>
 <style lang="less">
+html {
+  font-size: 12px;
+}
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 14.0625px;
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 15.525px;
+  }
+}
 .clearfix:after {
   content: '.';
   display: block;
@@ -142,24 +165,7 @@ img {
   border-radius: 3px;
   font-size: 12px;
 }
-html {
-  font-size: 12px;
-}
-@media screen and (max-width: 320px) {
-  html {
-    font-size: 12px;
-  }
-}
-@media screen and (min-width: 375px) {
-  html {
-    font-size: 14.0625px;
-  }
-}
-@media screen and (min-width: 414px) {
-  html {
-    font-size: 15.525px;
-  }
-}
+
 .mb-15 {
   margin-bottom: 15px !important;
 }

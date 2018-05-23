@@ -13,7 +13,7 @@
       </div>
     </x-header>
     <div class="courtList">
-      <font-awesome-icon icon="spinner" spin />
+      <!-- <font-awesome-icon icon="spinner" spin />
       <font-awesome-icon icon="spinner" pulse />
       <font-awesome-icon icon="plus" spin/>
       <font-awesome-icon icon="spinner" fixed-width />
@@ -21,7 +21,7 @@
       <font-awesome-layers class="fa-lg">
         <font-awesome-icon icon="circle" />
         <font-awesome-icon icon="check" transform="shrink-6" style="color: red;" />
-      </font-awesome-layers>
+      </font-awesome-layers> -->
       <group style="display:block">
         <cell-box v-for="item in list" :key="item.id" style="margin-top:0">
           <div @click="goDetail(item.id)">
