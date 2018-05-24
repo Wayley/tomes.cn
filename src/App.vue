@@ -165,7 +165,9 @@ img {
   border-radius: 3px;
   font-size: 12px;
 }
-
+.hide {
+  display: none !important;
+}
 .mb-15 {
   margin-bottom: 15px !important;
 }

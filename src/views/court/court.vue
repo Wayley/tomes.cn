@@ -41,7 +41,9 @@
                     <flexbox-item>
                       <div class="court-info clearfix">
                         <div class="fl name">{{item.name}}</div>
-                        <div class="fr distance">3.1公里以内</div>
+                        <div class="fr distance">
+                          <FontAwesomeIcon icon="map-marker-alt" style="color:#bcbcbc" size="xs"></FontAwesomeIcon>
+                          3.1km</div>
                       </div>
                     </flexbox-item>
                     <!--  -->

@@ -35,6 +35,7 @@
                           <span>{{item.from}}</span>
                         </div>
                         <div class="fr scan">
+                          <!-- <FontAwesomeIcon icon="eye"></FontAwesomeIcon> -->
                           <span>{{item.scan}}</span>次浏览
                         </div>
                       </div>
@@ -175,5 +176,8 @@ export default {
 .newsList .from span,
 .newsList .scan span {
   color: red;
+}
+.newsList .scan {
+  color: #ccc;
 }
 </style>

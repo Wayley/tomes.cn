@@ -51,7 +51,7 @@ export default {
     return {
       userInfo: {
         name: '',
-        avatar: '',
+        avatar: ' ',
         role: []
       },
       // FIXME:
