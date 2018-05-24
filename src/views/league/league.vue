@@ -130,9 +130,8 @@ export default {
   created() {},
   methods: {
     addLeague(i) {
-      console.log(1222222, i);
       this.$router.push({
-        name: 'court.add'
+        name: 'league.add'
       });
     },
     goDetail(id) {
