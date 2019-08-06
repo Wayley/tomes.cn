@@ -7,7 +7,7 @@
         <img :src="userInfo.avatar" :alt="userInfo.name">
         <div class="info">
           <span class="name">{{userInfo.name}}</span>
-          <tag v-for="tag in userInfo.role" class="role" :class="{captain:tag.r_id ==1,player:tag.r_id == 2}">
+          <tag v-for="tag in userInfo.role" class="role" :class="{captain:tag.r_id ==1,player:tag.r_id == 2}" :key="tag.r_id">
             <FontAwesomeIcon icon="crown" v-if="tag.r_id ==1" size="xs"></FontAwesomeIcon>
             <FontAwesomeIcon icon="user" v-if="tag.r_id ==2" size="xs"></FontAwesomeIcon>
             {{tag.r_name}}
@@ -60,20 +60,20 @@ export default {
         avatar: '/static/test/avator.png',
         role: [{ r_id: 1, r_name: '队长' }, { r_id: 2, r_name: '球员' }]
       }
-    };
+    }
   },
   created() {
-    this.getUserInfo();
+    this.getUserInfo()
   },
   methods: {
     getUserInfo() {
       // FIXME:
       setTimeout(() => {
-        this.userInfo = this.info;
-      }, 500);
+        this.userInfo = this.info
+      }, 500)
     }
   }
-};
+}
 </script>
 <style lang="less" scoped>
 .avatar {

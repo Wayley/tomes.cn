@@ -43,13 +43,14 @@
                         <div class="fl name">{{item.name}}</div>
                         <div class="fr distance">
                           <FontAwesomeIcon icon="map-marker-alt" style="color:#bcbcbc" size="xs"></FontAwesomeIcon>
-                          3.1km</div>
+                          3.1km
+                        </div>
                       </div>
                     </flexbox-item>
                     <!--  -->
                     <flexbox-item>
                       <div class="tags">
-                        <span class="tag" v-for="tag in item.tags" :class="'tag_type_'+tag">{{tagsList[tag-1]}}</span>
+                        <span class="tag" v-for="tag in item.tags" :class="'tag_type_'+tag" :key="tag">{{tagsList[tag-1]}}</span>
                       </div>
                     </flexbox-item>
                   </flexbox>
@@ -71,11 +72,11 @@ export default {
     return {
       list: [],
       tagsList: ['室外', '收费', '塑胶', '灯光']
-    };
+    }
   },
   computed: {
     dividerInfo() {
-      return this.$store.getters.dividerInfo;
+      return this.$store.getters.dividerInfo
     }
   },
   created() {
@@ -135,13 +136,13 @@ export default {
         id: 19,
         tags: [1, 3]
       }
-    ];
+    ]
   },
   methods: {
     addCourt(i) {
       this.$router.push({
         name: 'court.add'
-      });
+      })
     },
     goDetail(id) {
       this.$router.push({
@@ -149,10 +150,10 @@ export default {
         params: {
           id: id
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 <style lang="less" scoped>
 /* 球场列表 */
